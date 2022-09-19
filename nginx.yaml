@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-kustomize
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-kustomize
+  template:
+    metadata:
+      labels:
+        app: nginx-kustomize
+    spec:
+      containers:
+      - name: nginx-kustomize
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+        imagePullPolicy: Always
